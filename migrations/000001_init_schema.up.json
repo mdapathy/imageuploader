@@ -1,0 +1,48 @@
+[
+  {
+    "create": "images",
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": [
+          "_id",
+          "user_id",
+          "content",
+          "size",
+          "created_at"
+        ],
+        "properties": {
+          "created_at": {
+            "bsonType": "date"
+          },
+          "_id": {
+            "bsonType": "objectId"
+          },
+          "user_id": {
+            "bsonType": "string"
+          },
+          "content": {
+            "bsonType": "string"
+          },
+          "size": {
+            "bsonType": "int"
+          }
+        }
+      }
+    }
+  },
+  {
+    "createIndexes": "images",
+    "indexes": [
+      {
+        "key": {
+          "_id": 1,
+          "user_id": 1
+        },
+        "name": "user_image_id",
+        "unique": true,
+        "background": true
+      }
+    ]
+  }
+]
